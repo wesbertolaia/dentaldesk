@@ -22,6 +22,14 @@ class DentalDesk {
   statuses = statuses;
   notice = '';
 
+  get todayAppointments() {
+    return this.data.appointments.filter((item) => item.date === this.date && item.status !== 'Cancelled');
+  }
+
+  get confirmedToday() {
+    return this.todayAppointments.filter((item) => item.status === 'Confirmed').length;
+  }
+
   get appointments() {
     return this.data.appointments.filter((item) => !this.filter || item.date === this.filter)
       .sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
@@ -88,12 +96,37 @@ class DentalDesk {
 Component({
   selector: 'dental-desk',
   template: `
-    <section class="work-card"><h3>Patient registration</h3>
+    <dl class="metrics" aria-label="Practice overview">
+      <div><dt>Today’s visits</dt><dd>{{todayAppointments.length}}</dd></div>
+      <div><dt>Confirmed today</dt><dd>{{confirmedToday}}</dd></div>
+      <div><dt>Patients</dt><dd>{{data.patients.length}}</dd></div>
+    </dl>
+    <p class="notice" role="status">{{notice}}</p>
+    <div class="desk-grid">
+      <section class="panel" id="schedule">
+        <h2>Appointments</h2>
+    <div class="filters"><label>Filter by date <input type="date" [value]="filter" (input)="filter = $any($event.target).value"></label>
+      <button type="button" class="secondary" (click)="filter = ''">Show all dates</button></div>
+    <div class="table-wrap" tabindex="0" aria-label="Appointment schedule"><table>
+      <thead><tr><th>Date</th><th>Time</th><th>Patient</th><th>Service</th><th>Status</th></tr></thead>
+      <tbody>
+        @for (item of appointments; track item.id) {
+          <tr><td>{{item.date}}</td><td>{{item.time}}</td><td>{{patientName(item.patient)}}</td><td>{{item.service}}</td>
+            <td><select [attr.data-status]="item.status" [attr.aria-label]="'Status for ' + patientName(item.patient)" [value]="item.status" (change)="updateStatus(item.id, $event.target)">
+              @for (status of statuses; track status) {
+                <option [value]="status" [selected]="item.status === status">{{status}}</option>
+              }
+            </select></td></tr>
+        } @empty { <tr><td colspan="5">No appointments for this date.</td></tr> }
+      </tbody>
+    </table></div></section>
+      <div class="actions">
+        <section class="panel" id="patients"><h2>Register a patient</h2>
     <form (submit)="addPatient($event)">
       <label>Full name <input name="name" required maxlength="80" placeholder="e.g. Amelia Brooks"></label>
       <button type="submit">Register patient</button>
     </form>
-    </section><section class="work-card"><h3>Book an appointment</h3>
+    </section><section class="panel" id="booking"><h2>Book an appointment</h2>
     <form (submit)="book($event)">
       <label>Patient <select aria-label="Patient" name="patient" required>
         @for (patient of data.patients; track patient.id) {
@@ -105,23 +138,9 @@ Component({
       <label>Time <input type="time" name="time" required></label>
       <button type="submit">Book appointment</button>
     </form>
-    </section><section class="work-card schedule"><p class="notice" role="status">{{notice}}</p>
-    <h3>Appointment schedule</h3>
-    <div class="filters"><label>Filter by date <input type="date" [value]="filter" (input)="filter = $any($event.target).value"></label>
-      <button type="button" class="secondary" (click)="filter = ''">Show all dates</button></div>
-    <div class="table-wrap" tabindex="0" aria-label="Appointment schedule"><table>
-      <thead><tr><th>Date</th><th>Time</th><th>Patient</th><th>Service</th><th>Status</th></tr></thead>
-      <tbody>
-        @for (item of appointments; track item.id) {
-          <tr><td>{{item.date}}</td><td>{{item.time}}</td><td>{{patientName(item.patient)}}</td><td>{{item.service}}</td>
-            <td><select [attr.aria-label]="'Status for ' + patientName(item.patient)" [value]="item.status" (change)="updateStatus(item.id, $event.target)">
-              @for (status of statuses; track status) {
-                <option [value]="status" [selected]="item.status === status">{{status}}</option>
-              }
-            </select></td></tr>
-        } @empty { <tr><td colspan="5">No appointments for this date.</td></tr> }
-      </tbody>
-    </table></div></section>
+    </section>
+      </div>
+    </div>
   `,
 })(DentalDesk);
 
