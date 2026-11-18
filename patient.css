@@ -1,0 +1,38 @@
+:root { color-scheme: light; font: 16px/1.55 "Segoe UI",system-ui,sans-serif; color: #162f38; background: #f0f5f3; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+.wrap { width: min(1080px, calc(100% - 2.2rem)); margin-inline: auto; }
+.top { display:flex; justify-content:space-between; align-items:center; min-height:76px; border-bottom:1px solid #b9cfca; }
+a { color:#145b54; text-underline-offset:.22em; }
+.brand { font-size:1.3rem; font-weight:800; text-decoration:none; color:#162f38; }
+.brand span { color:#08796d; }
+.preview { margin-block:2rem 1rem; color:#3b615d; font-size:.875rem; font-weight:650; }
+.layout { display:grid; grid-template-columns:1.05fr 1fr; align-items:start; gap:clamp(1.5rem,6vw,5rem); }
+.intro { padding-top:clamp(.5rem,5vw,3rem); }
+h1,h2,p { margin:0; }
+h1 { font: 500 clamp(3rem,7vw,5.6rem)/.97 Georgia,serif; letter-spacing:-.065em; max-width:11ch; }
+.intro > p { margin-top:1.15rem; max-width:33ch; color:#35565c; font-size:1.1rem; }
+aside { margin-top:2rem; padding-left:1rem; border-left:3px solid #69a899; max-width:38ch; }
+aside p { margin-top:.3rem; color:#35565c; }
+.card { background:#fff; border:1px solid #b9cfca; border-radius:1rem; padding:clamp(1rem,3vw,1.8rem); margin-bottom:2rem; }
+.progress { color:#3b615d; margin-bottom:.45rem; font-size:.875rem; font-weight:650; }
+h2 { font-size:1.45rem; letter-spacing:-.025em; }
+label { display:grid; gap:.2rem; margin-block:.85rem; font-weight:650; }
+select,button,.button { min-height:44px; font:inherit; border-radius:.45rem; border:1px solid #648681; padding:.45rem .7rem; color:#162f38; background:#fff; }
+button,.button { background:#116358; color:#fff; border-color:#116358; cursor:pointer; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
+button:hover,.button:hover { background:#0c5148; }
+.secondary { color:#145b54; background:#fff; }
+.secondary:hover { background:#eff6f3; }
+.actions { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1rem; }
+:focus-visible { outline:3px solid #a34b19; outline-offset:3px; }
+dl { display:grid; grid-template-columns:auto 1fr; gap:.45rem 1rem; }
+dd { font-weight:650; margin:0; }
+.note { margin-top:.65rem; color:#35565c; }
+@media(max-width:720px) {
+  .layout { grid-template-columns:minmax(0,1fr); gap:1.25rem; }
+  .intro { display:contents; }
+  .intro h1 { grid-row:1; }
+  .intro > p { margin:0; }
+  aside { grid-row:4; margin:0 0 1.5rem; }
+  .card { margin:0; }
+}
