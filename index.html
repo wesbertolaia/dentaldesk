@@ -3,31 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A dental practice scheduling demo.">
-  <title>DentalDesk | Angular Demo</title>
+  <meta name="description" content="DentalDesk dental practice scheduling demo.">
+  <title>DentalDesk | Clinic Schedule</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="./style.css">
   <script type="module" src="./app.js"></script>
 </head>
 <body>
-  <header class="shell top">
-    <a class="brand" href="./">DentalDesk<span>.</span></a>
-    <nav aria-label="Main navigation">
-      <a href="https://github.com/wesbertolaia/dentaldesk">GitHub</a>
+  <aside class="sidebar">
+    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">+</span> DentalDesk</a>
+    <nav aria-label="Clinic workspace">
+      <a href="#schedule">Schedule</a>
+      <a href="#booking">Book a visit</a>
+      <a href="#patients">Register patient</a>
     </nav>
-  </header>
-  <main class="shell">
-    <section id="demo" aria-labelledby="demo-title">
-      <header class="demo-header">
-        <div>
-          <p class="eyebrow">CLINIC SCHEDULE</p>
-          <h1 id="demo-title">DentalDesk</h1><p class="tagline">Patients, appointments, and the day ahead.</p>
-        </div>
-      </header>
-      <p class="help">Sample data and changes are stored in this browser.</p>
-      <div class="demo-app"></div>
-    </section>
+    <a href="https://github.com/wesbertolaia/dentaldesk">View source on GitHub</a>
+  </aside>
+  <main class="workspace" id="demo">
+    <header class="demo-header">
+      <div>
+        <h1>Clinic schedule</h1>
+        <p class="help">Manage patient appointments and visit status.</p>
+      </div>
+      <span class="demo-label" title="Changes are stored in this browser">Sample records</span>
+    </header>
+    <div class="demo-app"></div>
   </main>
-  <footer class="shell"><a href="https://github.com/wesbertolaia/">Wes Bertolaia</a></footer>
 </body>
 </html>
