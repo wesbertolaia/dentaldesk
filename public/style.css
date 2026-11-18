@@ -129,3 +129,10 @@ tbody tr:hover td { background: #f5fafb; }
   .arch-art { width: 56%; right: -12%; opacity: .5; }
   .metrics div { padding: .5rem; }
 }
+
+:root { --teal: #34569b; }
+.demo-header { background: #263f6e; border-color: #2b4574; }
+.arch-art span { border-color: #97b5ff90; background: #8cb1f51a; }
+.arch-art span:last-child { background: #8cb1f53b; }
+.brand-mark { background: #b7ceff; color: #263f6e; }
+button:hover { background: #253f79; }

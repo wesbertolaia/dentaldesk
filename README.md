@@ -6,7 +6,7 @@ Register sample patients, book appointments, filter the schedule by date, and up
 
 The demo uses fictional records and stores changes in the browser.
 
-![DentalDesk appointment schedule and patient registration forms](docs/preview.png)
+![DentalDesk patient visit request prototype](docs/preview.png)
 
 [Patient booking prototype](https://wesleybertolaia.github.io/dentaldesk/patient.html) · [Offer variant](https://wesleybertolaia.github.io/dentaldesk/patient.html?offer=times) · [Clinic workspace](https://wesleybertolaia.github.io/dentaldesk/)
 
