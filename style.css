@@ -68,3 +68,64 @@ td select[data-status="Cancelled"] { background: #fbecec; color: #8a3535; }
   .metrics dt { font-size: .8rem; }
   .actions { grid-template-columns: 1fr; }
 }
+
+/* The layered arcs echo the curves of a dental arch. */
+.demo-header {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 186px;
+  padding: clamp(1.2rem, 3.3vw, 2.75rem);
+  border: 1px solid #244960;
+  border-radius: 1rem;
+  background: linear-gradient(118deg, #10283f 25%, #195064 100%);
+  color: #fff;
+}
+.demo-header > div:first-child { max-width: 36rem; }
+.demo-header .help { color: #d5e8ef; }
+.demo-label { align-self: flex-start; color: #e2f5f4; background: #19485d; border-color: #5d8393; }
+.arch-art {
+  position: absolute;
+  z-index: -1;
+  width: min(42%, 420px);
+  height: 235px;
+  right: 6%;
+  bottom: -86px;
+  transform: rotate(-18deg);
+}
+.arch-art span {
+  position: absolute;
+  inset: calc(var(--arc) * 15px);
+  border: 1px solid #a3f2db80;
+  border-radius: 48% 48% 0 0;
+  background: #65e9c90f;
+}
+.arch-art span:last-child { background: #65e9c92b; }
+.metrics div { border: 1px solid var(--line); border-top: 3px solid #168378; border-radius: .7rem; padding: .85rem 1.1rem; box-shadow: 0 7px 18px #1c3b4d09; }
+.metrics div:nth-child(2) { border-top-color: #4085ac; }
+.metrics div:nth-child(3) { border-top-color: #687baf; }
+.metrics dd { font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -.04em; }
+.panel { border-radius: .8rem; box-shadow: 0 8px 22px #19364b09; }
+.panel:target { border-color: #168378; }
+tbody tr:hover td { background: #f5fafb; }
+.sidebar { background: linear-gradient(180deg, #12283e, #172e43 70%); }
+
+@keyframes clinic-arrive {
+  from { opacity: 0; transform: translateY(9px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .arch-art span { animation: clinic-arrive .58s ease-out both; animation-delay: calc(var(--arc) * 85ms); }
+  .metrics div { animation: clinic-arrive .36s ease-out both; }
+  .metrics div:nth-child(2) { animation-delay: .07s; }
+  .metrics div:nth-child(3) { animation-delay: .14s; }
+  .desk-grid { animation: clinic-arrive .43s .14s ease-out both; }
+  .notice:not(:empty) { animation: clinic-arrive .2s ease-out both; }
+  button, td select, .panel { transition: background-color .18s ease, border-color .18s ease; }
+  .sidebar nav a { transition: background-color .18s ease; }
+}
+@media (max-width: 700px) {
+  .demo-header { min-height: 0; }
+  .arch-art { width: 56%; right: -12%; opacity: .5; }
+  .metrics div { padding: .5rem; }
+}
