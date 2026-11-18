@@ -8,11 +8,14 @@ The demo uses fictional records and stores changes in the browser.
 
 ![DentalDesk appointment schedule and patient registration forms](docs/preview.png)
 
-[Open the live demo](https://wesbertolaia.github.io/dentaldesk/)
+[Patient booking prototype](https://wesbertolaia.github.io/dentaldesk/patient.html) · [Offer variant](https://wesbertolaia.github.io/dentaldesk/patient.html?offer=times) · [Clinic workspace](https://wesbertolaia.github.io/dentaldesk/)
+
+The patient-facing prototype shows sample times before the request step. The second offer changes the headline and first action while keeping the flow constant.
 
 ## Browse the code
 
-- [Angular application](./dentaldesk.js)
+- [Clinic workspace](./dentaldesk.js)
+- [Patient booking flow](./patient.js)
 - [Browser storage and date utilities](./storage.js)
 
 ## Run the demo locally

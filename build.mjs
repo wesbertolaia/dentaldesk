@@ -4,8 +4,9 @@ import { build } from 'esbuild';
 await mkdir('dist', { recursive: true });
 await cp('public', 'dist', { recursive: true });
 await build({
-  entryPoints: ['main.js'],
-  outfile: 'dist/app.js',
+  entryPoints: { app: 'main.js', patient: 'patient.js' },
+  outdir: 'dist',
+  splitting: true,
   bundle: true,
   format: 'esm',
   minify: true,
