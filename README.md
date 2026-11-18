@@ -8,6 +8,8 @@ The demo uses fictional records and stores changes in the browser.
 
 ![DentalDesk appointment schedule and patient registration forms](docs/preview.png)
 
+[Open the live demo](https://wesbertolaia.github.io/dentaldesk/)
+
 ## Browse the code
 
 - [Angular application](./dentaldesk.js)
