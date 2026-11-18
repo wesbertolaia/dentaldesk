@@ -4,7 +4,9 @@ A dental practice scheduling demo. Built with Angular.
 
 Register sample patients, book appointments, filter the schedule by date, and update visit status. Booking validation prevents duplicate appointments in the same time slot.
 
-The demo uses fictional records and stores changes in the browser. The repository showcases the frontend implementation.
+The demo uses fictional records and stores changes in the browser.
+
+![DentalDesk appointment schedule and patient registration forms](docs/preview.png)
 
 ## Browse the code
 

@@ -88,12 +88,12 @@ class DentalDesk {
 Component({
   selector: 'dental-desk',
   template: `
-    <h3>Patient registration</h3>
+    <section class="work-card"><h3>Patient registration</h3>
     <form (submit)="addPatient($event)">
       <label>Full name <input name="name" required maxlength="80" placeholder="e.g. Amelia Brooks"></label>
       <button type="submit">Register patient</button>
     </form>
-    <h3>Book an appointment</h3>
+    </section><section class="work-card"><h3>Book an appointment</h3>
     <form (submit)="book($event)">
       <label>Patient <select aria-label="Patient" name="patient" required>
         @for (patient of data.patients; track patient.id) {
@@ -105,7 +105,7 @@ Component({
       <label>Time <input type="time" name="time" required></label>
       <button type="submit">Book appointment</button>
     </form>
-    <p class="notice" role="status">{{notice}}</p>
+    </section><section class="work-card schedule"><p class="notice" role="status">{{notice}}</p>
     <h3>Appointment schedule</h3>
     <div class="filters"><label>Filter by date <input type="date" [value]="filter" (input)="filter = $any($event.target).value"></label>
       <button type="button" class="secondary" (click)="filter = ''">Show all dates</button></div>
@@ -121,7 +121,7 @@ Component({
             </select></td></tr>
         } @empty { <tr><td colspan="5">No appointments for this date.</td></tr> }
       </tbody>
-    </table></div>
+    </table></div></section>
   `,
 })(DentalDesk);
 
