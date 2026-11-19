@@ -71,3 +71,15 @@ dd { font-weight:650; margin:0; }
 .signature-line { color: #286658; font-size: .88rem; font-weight: 700; }
 .dental-hero-photo { display: block; width: 100%; height: clamp(112px, 16vw, 210px); object-fit: cover; object-position: center 55%; border-radius: 6px 28px 6px 6px; margin-top: 1rem; }
 @media (max-width: 560px) { .intro .booking-guide { margin-top: 1rem; } }
+
+/* The clinic sets the scene, and the booking card sits in front of it. */
+.layout { position: relative; isolation: isolate; align-items: center; gap: clamp(1rem,4vw,3rem); padding: clamp(1.15rem,3.5vw,3.25rem); margin-top: 1rem; border-radius: 26px; background: #eaf6f1; overflow: hidden; }
+.dental-hero-photo { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; margin: 0; border-radius: 0; object-position: 72% center; }
+.layout::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg,#edf8f4 5%,#edf8f4ed 36%,#edf8f450 75%); }
+.intro .booking-guide { background: #f3faf7e8; }
+.layout .card { background: #fff; box-shadow: 0 16px 48px #052c2740; }
+@media (max-width: 620px) {
+  .layout { border-radius: 18px; padding-top: 6.5rem; }
+  .dental-hero-photo { height: 14rem; object-position: center 58%; }
+  .layout::before { background: linear-gradient(to bottom,#edf8f400,#edf8f4 13.3rem); }
+}
