@@ -83,3 +83,25 @@ dd { font-weight:650; margin:0; }
   .dental-hero-photo { height: 14rem; object-position: center 58%; }
   .layout::before { background: linear-gradient(to bottom,#edf8f400,#edf8f4 13.3rem); }
 }
+
+/* Appointment availability is the main panel; the clinic provides context. */
+.layout { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,.8fr); align-items: start; padding: 0; gap: 1rem; background: transparent; border-radius: 0; }
+.layout::before { display: none; }
+.layout .intro { grid-column: 2; grid-row: 1; padding: 1rem; border-radius: 14px; background: #e3f0ec; }
+.layout .intro h1 { font-size: clamp(1.65rem,3.5vw,3rem); }
+.layout .dental-hero-photo { position: static; grid-column: 2; grid-row: 2; height: 155px; border-radius: 14px; }
+#booking { grid-column: 1; grid-row: 1 / span 2; min-width: 0; }
+.layout .card { box-shadow: 0 6px 24px #052c2710; }
+.available-times { margin: .75rem 0; min-width: 0; padding: 0; border: 0; }
+.available-times legend { font-size: .85rem; font-weight: 650; }
+.card .time-tile { display: flex; align-items: center; gap: .6rem; padding: .65rem; border: 1px solid #b6d8ce; border-radius: 10px; margin-top: .35rem; cursor: pointer; }
+.card .time-tile input { min-height: auto; accent-color: #08796d; }
+.card .time-tile:has(:checked) { background: #d9efe8; border-color: #08796d; }
+@media(max-width: 680px) {
+  .layout { grid-template-columns: minmax(0,1fr); }
+  .layout .intro,#booking,.layout .dental-hero-photo { grid-column: auto; grid-row: auto; }
+  .layout .intro { order: -1; }
+  #booking { order: 0; }
+  .layout .dental-hero-photo { order: 1; }
+  .layout .booking-guide { display: none; }
+}
