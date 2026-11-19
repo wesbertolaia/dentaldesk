@@ -6,9 +6,9 @@
   <meta name="description" content="Choose a visit type and request an appointment with DentalDesk.">
   <title>Request a dental visit | DentalDesk</title>
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="./patient.css?v=booking-photo">
-  <script src="./locale.js?v=availability-board"></script>
-  <script type="module" src="./patient.js?v=availability-board"></script>
+  <link rel="stylesheet" href="./patient.css?v=landing">
+  <script src="./locale.js?v=landing"></script>
+  <script type="module" src="./patient.js?v=landing"></script>
   <link rel="stylesheet" href="./locale.css">
 </head>
 <body>
@@ -25,11 +25,15 @@
         </aside>
       </div>
       <div class="booking-flow">
-        <img class="dental-hero-photo" src="./header-visual.jpg" alt="" width="1200" height="800">
+        <div class="booking-photo"><img class="dental-hero-photo" src="./header-visual.jpg" alt="" width="1200" height="800"></div>
         <div id="booking"></div>
       </div>
     </section>
   </main>
   <footer class="wrap patient-footer">Practice booking. No real appointments are made.</footer>
+  <dialog class="clinic-dialog" aria-labelledby="clinic-title">
+    <form method="dialog"><strong id="clinic-title">Clinic workspace</strong><button>Close</button></form>
+    <iframe title="Clinic workspace"></iframe>
+  </dialog>
 </body>
 </html>

@@ -1,135 +1,132 @@
-:root { color-scheme: light; font: 16px/1.55 "Segoe UI",system-ui,sans-serif; color: #162f38; background: #f0f5f3; }
+:root {
+  font: 16px/1.5 system-ui, sans-serif;
+  color: #162f38;
+  background: #e2f1eb;
+}
 * { box-sizing: border-box; }
-body { margin: 0; }
-.wrap { width: calc(100% - clamp(1.5rem, 6vw, 6rem)); margin-inline: auto; }
-.top { display:flex; justify-content:space-between; align-items:center; min-height:76px; border-bottom:1px solid #b9cfca; }
-a { color:#145b54; text-underline-offset:.22em; }
-.brand { font-size:1.3rem; font-weight:800; text-decoration:none; color:#162f38; }
-.brand span { color:#08796d; }
-.preview { margin-block:2rem 1rem; color:#3b615d; font-size:.875rem; font-weight:650; }
-.layout { display:grid; grid-template-columns:1.05fr 1fr; align-items:start; gap:clamp(1.5rem,6vw,5rem); }
-.intro { padding-top:clamp(.5rem,5vw,3rem); }
-h1,h2,p { margin:0; }
-h1 { font: 500 clamp(3rem,7vw,5.6rem)/.97 Georgia,serif; letter-spacing:-.065em; max-width:11ch; }
-.intro > p { margin-top:1.15rem; max-width:33ch; color:#35565c; font-size:1.1rem; }
-aside { margin-top:2rem; padding-left:1rem; border-left:3px solid #69a899; max-width:38ch; }
-aside p { margin-top:.3rem; color:#35565c; }
-.card { background:#fff; border:1px solid #b9cfca; border-radius:1rem; padding:clamp(1rem,3vw,1.8rem); margin-bottom:2rem; }
-.progress { color:#3b615d; margin-bottom:.45rem; font-size:.875rem; font-weight:650; }
-h2 { font-size:1.45rem; letter-spacing:-.025em; }
-label { display:grid; gap:.2rem; margin-block:.85rem; font-weight:650; }
-select,button,.button { min-height:44px; font:inherit; border-radius:.45rem; border:1px solid #648681; padding:.45rem .7rem; color:#162f38; background:#fff; }
-button,.button { background:#116358; color:#fff; border-color:#116358; cursor:pointer; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
-button:hover,.button:hover { background:#0c5148; }
-.secondary { color:#145b54; background:#fff; }
-.secondary:hover { background:#eff6f3; }
-.actions { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1rem; }
-:focus-visible { outline:3px solid #a34b19; outline-offset:3px; }
-dl { display:grid; grid-template-columns:auto 1fr; gap:.45rem 1rem; }
-dd { font-weight:650; margin:0; }
-.note { margin-top:.65rem; color:#35565c; }
-@media(max-width:720px) {
-  .layout { grid-template-columns:minmax(0,1fr); gap:1.25rem; }
-  .intro { display:contents; }
-  .intro h1 { grid-row:1; }
-  .intro > p { margin:0; }
-  aside { grid-row:4; margin:0 0 1.5rem; }
-  .card { margin:0; }
+body { min-height: 100svh; margin: 0; display: flex; flex-direction: column; }
+.wrap { width: min(1700px, calc(100% - clamp(1.5rem, 6vw, 7rem))); margin-inline: auto; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: .65rem; min-height: 68px; border-bottom: 1px solid #b9cfca; }
+a { color: #145b54; text-underline-offset: .22em; }
+.brand { color: #162f38; text-decoration: none; font-size: 1.3rem; font-weight: 800; }
+.brand span { color: #08796d; }
+main.wrap { flex: 1; display: grid; padding-block: clamp(.75rem, 2vh, 1.35rem); }
+.layout { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: clamp(.75rem, 1.5vw, 1.5rem); }
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-column: 2;
+  grid-row: 1;
+  padding: clamp(1.25rem, 3.1vw, 3.75rem);
+  border-radius: 20px;
+  background: #123a34;
+  color: #fff;
 }
-:root { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: #f1f8f6; color: #152e2a; }
-.wrap { max-width: 1200px; }
-.layout { gap: clamp(1.5rem, 5vw, 4rem); padding-bottom: 2.5rem; }
-.intro { padding-top: .75rem; }
-.intro h1 { font: 690 clamp(2.5rem, 5vw, 4.6rem)/1.02 -apple-system, BlinkMacSystemFont, system-ui, sans-serif; letter-spacing: -.065em; }
-.intro aside { border: 1px solid #cae6df; border-radius: 16px; background: #e0f3ee; }
-.card { border: 1px solid #d6e8e4; border-radius: 24px; box-shadow: 0 16px 48px #123e3412; }
-.card input,.card select,.card button { border-radius: 11px; min-height: 44px; }
-.card .secondary { margin-top: .25rem; }
-.card .actions a { color: #075e51; }
-.progress { color: #075e51; }
-.request-status { display: inline-block; margin-block: .7rem; padding: .35rem .65rem; border-radius: 999px; background: #dff3ec; color: #075e51; font-weight: 700; }
-
-.card .patient-profile { display: flex; align-items: center; gap: .55rem; }
-.card .patient-profile input { width: 18px; min-height: 0; accent-color: #08796d; }
-
-.card .status-next { margin: .4rem 0 1rem; color: #35565c; }
-
-.preview { display: inline-block; padding: .3rem .65rem; border-radius: 999px; background: #dcefe9; color: #15584a; }
-.intro h1 { max-width: 13ch; }
-.intro .booking-guide { max-width: 35ch; padding: 1rem 1.15rem; background: #e8f5f0; }
-.booking-guide ol { padding-left: 1.25rem; margin-block: .5rem .75rem; }
-.booking-guide li + li { margin-top: .3rem; }
-.booking-guide p { font-size: .88rem; }
-.patient-footer { margin-top: 1rem; padding-block: 1rem; border-top: 1px solid #cce3dc; color: #35565c; font-size: .85rem; }
-.card button:disabled { opacity: .5; cursor: default; }
-
-.layout { padding-top: clamp(1.15rem, 3vw, 2.75rem); }
-.intro h1 { font-weight: 710; }
-.intro .booking-guide { border: 0; border-left: 3px solid #62ad9b; border-radius: 0 12px 12px 0; }
-.card .progress { display: inline-flex; padding: .25rem .55rem; border-radius: 6px; background: #e4f4ef; }
-
-.signature-line { color: #286658; font-size: .88rem; font-weight: 700; }
-.dental-hero-photo { display: block; width: 100%; height: clamp(112px, 16vw, 210px); object-fit: cover; object-position: center 55%; border-radius: 6px 28px 6px 6px; margin-top: 1rem; }
-@media (max-width: 560px) { .intro .booking-guide { margin-top: 1rem; } }
-
-/* The clinic sets the scene, and the booking card sits in front of it. */
-.layout { position: relative; isolation: isolate; align-items: center; gap: clamp(1rem,4vw,3rem); padding: clamp(1.15rem,3.5vw,3.25rem); margin-top: 1rem; border-radius: 26px; background: #eaf6f1; overflow: hidden; }
-.dental-hero-photo { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; margin: 0; border-radius: 0; object-position: 72% center; }
-.layout::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg,#edf8f4 5%,#edf8f4ed 36%,#edf8f450 75%); }
-.intro .booking-guide { background: #f3faf7e8; }
-.layout .card { background: #fff; box-shadow: 0 16px 48px #052c2740; }
-@media (max-width: 620px) {
-  .layout { border-radius: 18px; padding-top: 6.5rem; }
-  .dental-hero-photo { height: 14rem; object-position: center 58%; }
-  .layout::before { background: linear-gradient(to bottom,#edf8f400,#edf8f4 13.3rem); }
+h1,h2,p { margin: 0; }
+.intro h1 { max-width: 15ch; font-size: clamp(2rem, 3.4vw, 4rem); line-height: 1.03; letter-spacing: -.055em; }
+.intro > p { max-width: 43ch; color: #e6f1eb; margin-top: 1rem; font-size: clamp(.95rem, 1.25vw, 1.2rem); }
+.intro > .signature-line { margin: 0 0 .4rem; color: #b9e4d4; font-size: 1rem; font-weight: 700; }
+.booking-guide {
+  max-width: 48ch;
+  margin-top: clamp(1rem, 3.5vh, 2.75rem);
+  padding: 1rem 1.15rem;
+  border-left: 3px solid #70bea5;
+  border-radius: 0 12px 12px 0;
+  background: #214d44;
 }
+.booking-guide ol { padding-left: 1.2rem; margin-block: .45rem .65rem; }
+.booking-guide li + li { margin-top: .2rem; }
+.booking-guide p { font-size: .875rem; color: #e2eee8; }
 
-/* Appointment availability is the main panel; the clinic provides context. */
-.layout { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,.8fr); align-items: start; padding: 0; gap: 1rem; background: transparent; border-radius: 0; }
-.layout::before { display: none; }
-.layout .intro { grid-column: 2; grid-row: 1; padding: 1rem; border-radius: 14px; background: #e3f0ec; }
-.layout .intro h1 { font-size: clamp(1.65rem,3.5vw,3rem); }
-.layout .dental-hero-photo { position: static; grid-column: 2; grid-row: 2; height: 155px; border-radius: 14px; }
-#booking { grid-column: 1; grid-row: 1 / span 2; min-width: 0; }
-.layout .card { box-shadow: 0 6px 24px #052c2710; }
-.available-times { margin: .75rem 0; min-width: 0; padding: 0; border: 0; }
+.booking-flow { grid-area: 1 / 1; min-width: 0; display: grid; grid-template-rows: minmax(min-content, 1fr) auto; gap: clamp(.55rem, 1.1vw, 1rem); }
+.booking-photo { position: relative; min-height: clamp(125px, 23vh, 260px); overflow: hidden; border-radius: 20px 20px 8px 8px; }
+.dental-hero-photo { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 57%; }
+.card { background: #fff; border: 1px solid #d0e6df; border-radius: 16px; padding: clamp(1.15rem, 2.8vw, 3rem); box-shadow: 0 8px 28px #052c2710; }
+.progress { display: inline-flex; margin-bottom: .55rem; padding: .25rem .55rem; border-radius: 6px; background: #e4f4ef; color: #075e51; font-size: .875rem; font-weight: 700; }
+h2 { font-size: clamp(1.28rem, 1.85vw, 1.9rem); line-height: 1.2; letter-spacing: -.025em; }
+label { display: grid; gap: .2rem; margin-block: .85rem; font-weight: 650; }
+select,button,.button { min-height: 44px; max-width: 100%; padding: .45rem .7rem; border: 1px solid #648681; border-radius: 9px; color: inherit; background: #fff; font: inherit; }
+button,.button { display: inline-flex; align-items: center; justify-content: center; background: #116358; color: #fff; border-color: #116358; cursor: pointer; font-weight: 700; text-decoration: none; }
+button:hover,.button:hover { background: #0c5148; }
+button:disabled { opacity: .5; cursor: default; }
+.secondary { color: #145b54; background: #fff; }
+.secondary:hover { background: #eff6f3; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: .55rem; margin-top: .85rem; }
+:focus-visible { outline: 3px solid #a34b19; outline-offset: 3px; }
+.available-times { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; margin: .8rem 0; min-width: 0; padding: 0; border: 0; }
 .available-times legend { font-size: .85rem; font-weight: 650; }
-.card .time-tile { display: flex; align-items: center; gap: .6rem; padding: .65rem; border: 1px solid #b6d8ce; border-radius: 10px; margin-top: .35rem; cursor: pointer; }
-.card .time-tile input { min-height: auto; accent-color: #08796d; }
-.card .time-tile:has(:checked) { background: #d9efe8; border-color: #08796d; }
-@media(max-width: 680px) {
-  .layout { grid-template-columns: minmax(0,1fr); }
-  .layout .intro,#booking,.layout .dental-hero-photo { grid-column: auto; grid-row: auto; }
-  .layout .intro { order: -1; }
-  #booking { order: 0; }
-  .layout .dental-hero-photo { order: 1; }
-  .layout .booking-guide { display: none; }
-}
+.card .time-tile { display: grid; grid-template-columns: auto minmax(0, 1fr); align-content: center; align-items: center; gap: .35rem .55rem; min-height: clamp(72px, 12vh, 108px); margin: 0; padding: .7rem; border: 1px solid #b6d8ce; border-radius: 10px; background: #f6faf8; cursor: pointer; }
+.time-tile input,.patient-profile input { margin: 0; accent-color: #08796d; }
+.time-tile .slot-day { font-size: .8rem; overflow-wrap: anywhere; }
+.time-tile strong { grid-column: 2; font-size: clamp(.9rem, 1.3vw, 1.2rem); }
+.card .time-tile:has(:checked) { background: #d9efe8; border-color: #08796d; box-shadow: inset 0 -3px #08796d; }
+.card .patient-profile { display: flex; align-items: center; gap: .55rem; }
+.card .patient-profile input { width: 18px; height: 18px; }
+.note { margin-top: .65rem; color: #35565c; }
+.note:empty { margin: 0; }
+dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .35rem .8rem; }
+dd { font-weight: 650; margin: 0; }
+.request-status { display: inline-block; margin-block: .6rem; padding: .3rem .65rem; border-radius: 999px; background: #dff3ec; color: #075e51; font-weight: 700; }
+.status-next { color: #35565c; }
+.patient-footer { padding-block: .65rem; border-top: 1px solid #cce3dc; color: #35565c; font-size: .82rem; }
 
-/* Availability board: date tiles lead, with clinic context in a photographic rail. */
-body { background: #e2f1eb; }
-.layout .intro { background: #123a34; color: #fff; border-radius: 20px 20px 4px 4px; padding: clamp(1.1rem,3vw,2rem); }
-.layout .intro > p { color: #e6f1eb; }
-.layout .intro .signature-line { color: #b9e4d4; }
-.layout .booking-guide { background: #214d44; border-color: #70bea5; }
-.layout .booking-guide p { color: #e2eee8; }
-.layout .dental-hero-photo { height: clamp(140px,20vw,260px); border-radius: 4px 4px 20px 20px; }
-.layout .card { border-radius: 20px; padding: clamp(1rem,3.5vw,2rem); }
-.available-times { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,8rem),1fr)); gap: .55rem; }
-.card .time-tile { display: grid; grid-template-columns: auto 1fr; align-content: start; min-height: 86px; margin: 0; background: #f6faf8; }
-.time-tile .slot-day { font-size: .78rem; overflow-wrap: anywhere; }
-.time-tile strong { grid-column: 2; font-size: 1.05rem; }
-.card .time-tile:has(:checked) { box-shadow: inset 0 -3px #08796d; }
-@media(max-width:680px) { .layout .intro { border-radius: 16px; } .layout .dental-hero-photo { border-radius: 16px; } }
-
-.booking-flow { grid-column: 1; grid-row: 1; min-width: 0; }
-.booking-flow .dental-hero-photo {
-  height: clamp(112px, 16vw, 205px);
-  margin-bottom: .65rem;
-  border-radius: 20px 20px 6px 6px;
-  object-position: center 60%;
+.clinic-dialog { width: min(96%, 1300px); height: min(90dvh, 900px); max-height: calc(100dvh - 1rem); padding: 0; border: 1px solid #b9cfca; border-radius: 14px; background: #e2f1eb; }
+.clinic-dialog[open] { display: grid; grid-template-rows: auto minmax(0, 1fr); }
+.clinic-dialog::backdrop { background: #123a3480; }
+.clinic-dialog form { display: flex; align-items: center; justify-content: space-between; gap: .5rem; padding: .45rem .65rem; }
+.clinic-dialog iframe { display: block; width: 100%; height: 100%; border: 0; }
+@media (min-width: 681px) and (max-height: 600px) {
+  .top { min-height: 53px; }
+  main.wrap { padding-block: .5rem; }
+  .layout { gap: .65rem; }
+  .intro,.card { padding: .8rem 1rem; }
+  .intro h1 { font-size: clamp(1.65rem, 3.45vw, 2.3rem); }
+  .intro > p { margin-top: .55rem; font-size: .9rem; }
+  .intro > .signature-line { font-size: .8rem; }
+  .booking-guide { padding: .6rem .7rem; margin-top: .65rem; font-size: .85rem; }
+  .booking-guide p { font-size: .8rem; }
+  .booking-photo { min-height: 82px; }
+  .card .time-tile { min-height: 54px; padding: .35rem; }
+  .card label,.available-times,.actions,dl { margin-block: .4rem; }
+  .card .time-tile { margin: 0; }
+  .patient-footer { padding-block: .3rem; }
 }
-@media (max-width:680px) {
-  .booking-flow { grid-column: auto; grid-row: auto; }
-  .booking-flow .dental-hero-photo { height: 110px; }
+@media (max-width: 680px) {
+  .top { min-height: 54px; }
+  .top > a:not(.brand) { font-size: .82rem; }
+  main.wrap { display: block; padding-block: .5rem; }
+  .layout { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+  .intro { grid-area: auto; padding: .75rem .9rem; border-radius: 14px; }
+  .intro h1 { max-width: none; font-size: clamp(1.5rem, 6vw, 2.3rem); }
+  .intro > p { margin-top: .35rem; font-size: .9rem; }
+  .intro > .signature-line,.booking-guide { display: none; }
+  .booking-flow { grid-area: auto; gap: .45rem; }
+  .booking-photo { height: clamp(65px, 13svh, 120px); min-height: 0; border-radius: 12px; }
+  .card { padding: .7rem; border-radius: 12px; }
+  .available-times { gap: .3rem; margin-block: .45rem; }
+  .card .time-tile { grid-template-columns: 1fr; justify-items: start; min-height: 64px; gap: .05rem; padding: .3rem .35rem; }
+  .time-tile strong { grid-column: auto; }
+  .time-tile .slot-day { font-size: .72rem; }
+  .actions { margin-top: .5rem; }
+  .patient-footer { padding-block: .4rem; }
+}
+@media (max-width: 420px) and (max-height: 660px) {
+  header.top:has(> [data-language-menu]) { flex-wrap: nowrap; gap: .3rem; }
+  .top { min-height: 49px; }
+  .top .brand { font-size: 1.1rem; }
+  .top .language-picker { min-width: 3.1rem; padding-inline: .3rem; }
+  .top > a:not(.brand) { text-align: center; }
+  .intro { padding: .55rem .65rem; }
+  .intro > p { font-size: .8rem; }
+  .booking-photo { height: 64px; }
+  .card { padding: .55rem; }
+  .card .time-tile { min-height: 58px; }
+  .card .actions { gap: .3rem; }
+  .card .actions button { font-size: .8rem; padding-inline: .45rem; }
+}
+@media (min-width: 681px) and (max-height: 490px) {
+  .booking-guide ol { display: none; }
+  .booking-guide p { margin-top: .25rem; }
 }

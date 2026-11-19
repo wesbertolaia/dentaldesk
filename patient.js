@@ -172,3 +172,21 @@ Component({
 const host = document.createElement('patient-booking');
 document.querySelector('#booking').append(host);
 bootstrapApplication(PatientBooking);
+
+const workspace = document.querySelector('.clinic-dialog');
+const workspaceFrame = workspace.querySelector('iframe');
+document.addEventListener('click', event => {
+  const link = event.target.closest('header.top > a:not(.brand), .card .actions a');
+  if (!link || event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
+  event.preventDefault();
+  workspaceFrame.src = link.href;
+  workspace.showModal();
+});
+workspaceFrame.addEventListener('load', () => {
+  const patientLink = workspaceFrame.contentDocument?.querySelector('a[href*="patient.html"]');
+  patientLink?.addEventListener('click', event => {
+    if (event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
+    event.preventDefault();
+    workspace.close();
+  });
+});
