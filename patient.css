@@ -105,3 +105,19 @@ dd { font-weight:650; margin:0; }
   .layout .dental-hero-photo { order: 1; }
   .layout .booking-guide { display: none; }
 }
+
+/* Availability board: date tiles lead, with clinic context in a photographic rail. */
+body { background: #e2f1eb; }
+.layout .intro { background: #123a34; color: #fff; border-radius: 20px 20px 4px 4px; padding: clamp(1.1rem,3vw,2rem); }
+.layout .intro > p { color: #e6f1eb; }
+.layout .intro .signature-line { color: #b9e4d4; }
+.layout .booking-guide { background: #214d44; border-color: #70bea5; }
+.layout .booking-guide p { color: #e2eee8; }
+.layout .dental-hero-photo { height: clamp(140px,20vw,260px); border-radius: 4px 4px 20px 20px; }
+.layout .card { border-radius: 20px; padding: clamp(1rem,3.5vw,2rem); }
+.available-times { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,8rem),1fr)); gap: .55rem; }
+.card .time-tile { display: grid; grid-template-columns: auto 1fr; align-content: start; min-height: 86px; margin: 0; background: #f6faf8; }
+.time-tile .slot-day { font-size: .78rem; overflow-wrap: anywhere; }
+.time-tile strong { grid-column: 2; font-size: 1.05rem; }
+.card .time-tile:has(:checked) { box-shadow: inset 0 -3px #08796d; }
+@media(max-width:680px) { .layout .intro { border-radius: 16px; } .layout .dental-hero-photo { border-radius: 16px; } }
