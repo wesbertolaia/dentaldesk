@@ -6,7 +6,7 @@
   <meta name="description" content="Choose a visit type and request an appointment with DentalDesk.">
   <title>Request a dental visit | DentalDesk</title>
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="./patient.css?v=availability-board">
+  <link rel="stylesheet" href="./patient.css?v=booking-photo">
   <script src="./locale.js?v=availability-board"></script>
   <script type="module" src="./patient.js?v=availability-board"></script>
   <link rel="stylesheet" href="./locale.css">
@@ -15,7 +15,6 @@
   <header class="top wrap"><a href="./patient.html" class="brand">DentalDesk<span>.</span></a><a href="./">Clinic workspace</a><span data-language-menu></span></header>
   <main class="wrap">
     <section class="layout" aria-labelledby="offer">
-      <img class="dental-hero-photo" src="./header-visual.jpg" alt="" width="1200" height="800">
       <div class="intro">
         <p class="signature-line">Make time for your teeth.</p>
         <h1 id="offer">Request a dental appointment</h1>
@@ -25,7 +24,10 @@
           <p>A time is only confirmed after the clinic approves it.</p>
         </aside>
       </div>
-      <div id="booking"></div>
+      <div class="booking-flow">
+        <img class="dental-hero-photo" src="./header-visual.jpg" alt="" width="1200" height="800">
+        <div id="booking"></div>
+      </div>
     </section>
   </main>
   <footer class="wrap patient-footer">Practice booking. No real appointments are made.</footer>
