@@ -28,7 +28,18 @@ class DentalDesk {
   requests = read(requestsKey, []);
 
   resolveRequest(id, status) {
-    const next = read(requestsKey, []).map(item =>
+    const current = read(requestsKey, []);
+    const request = current.find(item => item.id === id && item.status === 'Pending clinic review');
+    if (!request) {
+      this.requests = current;
+      return;
+    }
+    if (status === 'Confirmed in demo' && current.some(item =>
+      item.id !== id && item.slot === request.slot && item.status === 'Confirmed in demo')) {
+      this.notice = 'That sample time is already confirmed for another request.';
+      return;
+    }
+    const next = current.map(item =>
       item.id === id && item.status === 'Pending clinic review' ? { ...item, status } : item
     );
     if (!save(requestsKey, next)) {

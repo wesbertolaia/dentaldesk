@@ -46,6 +46,26 @@ class PatientBooking {
     }
   }
 
+  cancelRequest() {
+    const next = read(requestsKey, []).map(item =>
+      item.id === this.request.id && item.status === 'Pending clinic review'
+        ? { ...item, status: 'Cancelled in demo' } : item);
+    if (!save(requestsKey, next)) {
+      this.notice = 'Changes could not be saved in this browser.';
+      return;
+    }
+    this.track();
+  }
+
+  statusMessage() {
+    return t({
+      'Pending clinic review': 'The demo clinic still needs to approve this time. Check back here for its decision.',
+      'Confirmed in demo': 'The demo clinic confirmed this time. The details below are your sample booking.',
+      'Declined in demo': 'This request was declined. Choose another time to send a new request.',
+      'Cancelled in demo': 'You cancelled this request. You can choose a new time whenever you’re ready.',
+    }[this.request.status] || 'Check the status of your sample request.');
+  }
+
   confirmation() {
     return t('You selected {service} for {slot}. No real appointment was booked.')
       .replace('{service}', t(this.service)).replace('{slot}', t(this.slot));
@@ -110,7 +130,15 @@ Component({
         @case (5) {
           <h2 id="step-title" tabindex="-1">Request status</h2>
           <p class="request-status">{{t(request.status)}}</p>
-          <p class="note">{{confirmation()}}</p>
+          <p class="status-next">{{statusMessage()}}</p>
+          <dl><dt>Visit</dt><dd>{{t(service)}}</dd><dt>Time</dt><dd>{{t(slot)}}</dd></dl>
+          <p class="note">This booking is a simulation.</p>
+          @if (request.status === 'Declined in demo' || request.status === 'Cancelled in demo') {
+            <button type="button" (click)="go(2)">Choose another time</button>
+          }
+          @if (request.status === 'Pending clinic review') {
+            <button type="button" class="secondary" (click)="cancelRequest()">Cancel sample request</button>
+          }
           <div class="actions"><button type="button" (click)="track()">Refresh status</button><a [href]="clinicUrl">Clinic workspace</a></div>
           <button class="secondary" type="button" (click)="go(1)">Start again</button>
         }
