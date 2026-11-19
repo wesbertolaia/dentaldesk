@@ -62,3 +62,8 @@ dd { font-weight:650; margin:0; }
 .booking-guide p { font-size: .88rem; }
 .patient-footer { margin-top: 1rem; padding-block: 1rem; border-top: 1px solid #cce3dc; color: #35565c; font-size: .85rem; }
 .card button:disabled { opacity: .5; cursor: default; }
+
+.layout { padding-top: clamp(1.15rem, 3vw, 2.75rem); }
+.intro h1 { font-weight: 710; }
+.intro .booking-guide { border: 0; border-left: 3px solid #62ad9b; border-radius: 0 12px 12px 0; }
+.card .progress { display: inline-flex; padding: .25rem .55rem; border-radius: 6px; background: #e4f4ef; }
