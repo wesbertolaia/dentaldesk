@@ -1,6 +1,7 @@
 (() => {
   const messages = {
-    "Choose a visit type": "Escolher tipo de atendimento",
+    "Close": "Fechar",
+    "Choose a visit type": "Escolher atendimento",
     "Choose a time and visit type.": "Escolha um horário e o tipo de atendimento.",
     "Make time for your teeth.": "Reserve um tempo para cuidar dos dentes.",
 
@@ -14,7 +15,7 @@
     "Review and send your request.": "Confira e envie a solicitação.",
     "Check back for the clinic’s decision.": "Volte para acompanhar a decisão da clínica.",
     "A time is only confirmed after the clinic approves it.": "O horário só é confirmado após a aprovação da clínica.",
-    "Practice booking. No real appointments are made.": "Agendamento de prática. Nenhuma consulta real é marcada.",
+    "Practice booking. No real appointments are made.": "Simulação. Nenhum horário é reservado.",
     "That time is no longer available. Please choose another.": "Este horário não está mais disponível. Escolha outro.",
     "Choose an available time": "Escolha um horário disponível",
     "No times are available right now.": "Nenhum horário disponível no momento.",
@@ -50,7 +51,7 @@
     "Decline request": "Recusar solicitação",
     "Request status updated.": "Status da solicitação atualizado.",
     "No sample patient requests yet.": "Ainda não há solicitações de exemplo.",
-    "Track last request": "Acompanhar última solicitação",
+    "Track last request": "Ver última solicitação",
     "Request status": "Status da solicitação",
     "Refresh status": "Atualizar status",
     "This saves a sample request to the demo clinic workspace. The time is not reserved.": "Salva uma solicitação de exemplo no painel da clínica. O horário não fica reservado.",
