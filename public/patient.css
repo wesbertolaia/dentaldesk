@@ -67,3 +67,7 @@ dd { font-weight:650; margin:0; }
 .intro h1 { font-weight: 710; }
 .intro .booking-guide { border: 0; border-left: 3px solid #62ad9b; border-radius: 0 12px 12px 0; }
 .card .progress { display: inline-flex; padding: .25rem .55rem; border-radius: 6px; background: #e4f4ef; }
+
+.signature-line { color: #286658; font-size: .88rem; font-weight: 700; }
+.dental-hero-photo { display: block; width: 100%; height: clamp(112px, 16vw, 210px); object-fit: cover; object-position: center 55%; border-radius: 6px 28px 6px 6px; margin-top: 1rem; }
+@media (max-width: 560px) { .intro .booking-guide { margin-top: 1rem; } }
