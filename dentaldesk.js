@@ -5,6 +5,7 @@ import { read, save, today } from './storage.js';
 
 const { t, date: displayDate, template } = window.siteLocale;
 const key = 'dentaldesk-v1';
+const requestsKey = 'dentaldesk-requests-v1';
 const statuses = ['Scheduled', 'Confirmed', 'Completed', 'Cancelled'];
 const seed = {
   patients: [{ id: 'p1', name: 'Emma Miller' }, { id: 'p2', name: 'Oliver Davis' }, { id: 'p3', name: 'Grace Wilson' }],
@@ -24,6 +25,19 @@ class DentalDesk {
   date = today();
   statuses = statuses;
   notice = '';
+  requests = read(requestsKey, []);
+
+  resolveRequest(id, status) {
+    const next = read(requestsKey, []).map(item =>
+      item.id === id && item.status === 'Pending clinic review' ? { ...item, status } : item
+    );
+    if (!save(requestsKey, next)) {
+      this.notice = 'Changes could not be saved in this browser.';
+      return;
+    }
+    this.requests = next;
+    this.notice = 'Request status updated.';
+  }
 
   get todayAppointments() {
     return this.data.appointments.filter((item) => item.date === this.date && item.status !== 'Cancelled');
@@ -105,6 +119,21 @@ Component({
       <div><dt>Patients</dt><dd>{{data.patients.length}}</dd></div>
     </dl>
     <p class="notice" role="status">{{t(notice)}}</p>
+    <section class="panel request-inbox">
+      <h2>Patient requests</h2>
+      @for (item of requests; track item.id) {
+        <article class="request-row">
+          <div><strong>{{item.patient || "Alex Morgan"}}</strong><div>{{t(item.service)}} · {{t(item.slot)}}</div></div>
+          <span class="request-status">{{t(item.status)}}</span>
+          @if (item.status === 'Pending clinic review') {
+            <div class="request-actions">
+              <button type="button" (click)="resolveRequest(item.id, 'Confirmed in demo')">Confirm request</button>
+              <button class="secondary" type="button" (click)="resolveRequest(item.id, 'Declined in demo')">Decline request</button>
+            </div>
+          }
+        </article>
+      } @empty { <p>No sample patient requests yet.</p> }
+    </section>
     <div class="desk-grid">
       <section class="panel" id="schedule">
         <h2>Appointments</h2>

@@ -1,5 +1,23 @@
 (() => {
   const messages = {
+    "Step {step} of 4": "Etapa {step} de 4",
+    "Choose a patient profile": "Escolha um perfil de paciente",
+    "Use the fictional patient below. No personal details are needed.": "Use o paciente fictício abaixo. Nenhum dado pessoal é necessário.",
+    "Use Alex Morgan’s sample profile": "Usar o perfil fictício de Alex Morgan",
+    "Continue to patient details": "Continuar para os dados do paciente",
+    "Pending clinic review": "Aguardando análise da clínica",
+    "Confirmed in demo": "Confirmado na demo",
+    "Declined in demo": "Recusado na demo",
+    "Patient requests": "Solicitações de pacientes",
+    "Confirm request": "Confirmar solicitação",
+    "Decline request": "Recusar solicitação",
+    "Request status updated.": "Status da solicitação atualizado.",
+    "No sample patient requests yet.": "Ainda não há solicitações de exemplo.",
+    "Track last request": "Acompanhar última solicitação",
+    "Request status": "Status da solicitação",
+    "Refresh status": "Atualizar status",
+    "This saves a sample request to the demo clinic workspace. The time is not reserved.": "Salva uma solicitação de exemplo no painel da clínica. O horário não fica reservado.",
+
     "Step {step} of 3": "Etapa {step} de 3",
     "You selected {service} for {slot}. No real appointment was booked.": "Você escolheu {service} para {slot}. Nenhuma consulta real foi agendada.",
     "Status for": "Status de",
