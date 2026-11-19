@@ -1,5 +1,8 @@
 (() => {
   const messages = {
+    "Request a dental appointment": "Solicite uma consulta odontológica",
+    "See available times for a check-up, cleaning, or consultation before you send a request.": "Veja os horários disponíveis para avaliação, limpeza ou consulta antes de enviar o pedido.",
+
     "A dental visit that fits your day.": "Uma consulta odontológica que cabe na sua agenda.",
     "Find a time that works for you, review your details, and send a request to the clinic.": "Escolha um horário, confira os dados e envie a solicitação à clínica.",
     "From request to confirmation": "Da solicitação à confirmação",
