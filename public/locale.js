@@ -1,5 +1,18 @@
 (() => {
   const messages = {
+    "A dental visit that fits your day.": "Uma consulta odontológica que cabe na sua agenda.",
+    "Find a time that works for you, review your details, and send a request to the clinic.": "Escolha um horário, confira os dados e envie a solicitação à clínica.",
+    "From request to confirmation": "Da solicitação à confirmação",
+    "Choose your visit and a time.": "Escolha o atendimento e o horário.",
+    "Review and send your request.": "Confira e envie a solicitação.",
+    "Check back for the clinic’s decision.": "Volte para acompanhar a decisão da clínica.",
+    "A time is only confirmed after the clinic approves it.": "O horário só é confirmado após a aprovação da clínica.",
+    "Practice booking. No real appointments are made.": "Agendamento de prática. Nenhuma consulta real é marcada.",
+    "That time is no longer available. Please choose another.": "Este horário não está mais disponível. Escolha outro.",
+    "Choose an available time": "Escolha um horário disponível",
+    "No times are available right now.": "Nenhum horário disponível no momento.",
+    "Reference": "Referência",
+
     "Patient booking": "Agendamento de pacientes",
     "Choose a visit type and request an appointment with DentalDesk.": "Escolha o tipo de atendimento e solicite uma consulta com o DentalDesk.",
     "awaiting review": "aguardando revisão",

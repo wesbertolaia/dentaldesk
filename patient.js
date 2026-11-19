@@ -18,7 +18,15 @@ class PatientBooking {
   service = services[0];
   slot = slots[0];
   services = services;
-  slots = slots;
+  get slots() {
+    const booked = new Set(read(requestsKey, []).filter(item => item.status === 'Confirmed in demo').map(item => item.slot));
+    return slots.filter(slot => !booked.has(slot));
+  }
+
+  selectTime() {
+    if (!this.slots.includes(this.slot)) this.slot = this.slots[0] || '';
+    this.go(2);
+  }
   request = read(requestsKey, []).find(item => item.id === read(lastKey, null));
   notice = '';
   clinicUrl = url('./');
@@ -26,6 +34,11 @@ class PatientBooking {
 
   submit() {
     const latest = read(requestsKey, []);
+    if (!this.slots.includes(this.slot)) {
+      this.notice = 'That time is no longer available. Please choose another.';
+      this.selectTime();
+      return;
+    }
     const request = { id: crypto.randomUUID(), service: this.service, slot: this.slot, patient: 'Alex Morgan', status: 'Pending clinic review' };
     if (!save(requestsKey, [request, ...latest])) {
       this.notice = 'Changes could not be saved in this browser.';
@@ -92,18 +105,19 @@ Component({
               @for (option of services; track option) { <option [value]="option" [selected]="option === service">{{t(option)}}</option> }
             </select>
           </label>
-          <button type="button" (click)="go(2)">{{t(cta)}}</button>
+          <button type="button" (click)="selectTime()">{{t(cta)}}</button>
           @if (request) { <button class="secondary" type="button" (click)="track()">Track last request</button> }
         }
         @case (2) {
-          <h2 id="step-title" tabindex="-1">Pick a sample time</h2>
+          <h2 id="step-title" tabindex="-1">Choose an available time</h2>
+          @if (!slots.length) { <p class="note">No times are available right now.</p> }
           <label>Appointment time
             <select [value]="slot" (change)="slot = $any($event.target).value">
               @for (option of slots; track option) { <option [value]="option" [selected]="option === slot">{{t(option)}}</option> }
             </select>
           </label>
           <div class="actions">
-            <button type="button" (click)="go(3)">Continue to patient details</button>
+            <button type="button" [disabled]="!slot" (click)="go(3)">Continue to patient details</button>
             <button class="secondary" type="button" (click)="go(1)">Back</button>
           </div>
         }
@@ -131,10 +145,10 @@ Component({
           <h2 id="step-title" tabindex="-1">Request status</h2>
           <p class="request-status">{{t(request.status)}}</p>
           <p class="status-next">{{statusMessage()}}</p>
-          <dl><dt>Visit</dt><dd>{{t(service)}}</dd><dt>Time</dt><dd>{{t(slot)}}</dd></dl>
+          <dl><dt>Reference</dt><dd>{{request.id.slice(0, 8).toUpperCase()}}</dd><dt>Visit</dt><dd>{{t(service)}}</dd><dt>Time</dt><dd>{{t(slot)}}</dd></dl>
           <p class="note">This booking is a simulation.</p>
           @if (request.status === 'Declined in demo' || request.status === 'Cancelled in demo') {
-            <button type="button" (click)="go(2)">Choose another time</button>
+            <button type="button" (click)="selectTime()">Choose another time</button>
           }
           @if (request.status === 'Pending clinic review') {
             <button type="button" class="secondary" (click)="cancelRequest()">Cancel sample request</button>
