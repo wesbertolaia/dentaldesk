@@ -51,3 +51,5 @@ dd { font-weight:650; margin:0; }
 
 .card .patient-profile { display: flex; align-items: center; gap: .55rem; }
 .card .patient-profile input { width: 18px; min-height: 0; accent-color: #08796d; }
+
+.card .status-next { margin: .4rem 0 1rem; color: #35565c; }

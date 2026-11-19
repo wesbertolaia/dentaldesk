@@ -1,5 +1,16 @@
 (() => {
   const messages = {
+    "Cancelled in demo": "Cancelado na demo",
+    "The demo clinic still needs to approve this time. Check back here for its decision.": "A clínica fictícia ainda precisa aprovar este horário. Volte aqui para ver a decisão.",
+    "The demo clinic confirmed this time. The details below are your sample booking.": "A clínica fictícia confirmou este horário. Confira abaixo os dados do agendamento de exemplo.",
+    "This request was declined. Choose another time to send a new request.": "A solicitação foi recusada. Escolha outro horário para enviar um novo pedido.",
+    "You cancelled this request. You can choose a new time whenever you’re ready.": "Você cancelou esta solicitação. Escolha um novo horário quando quiser.",
+    "Check the status of your sample request.": "Confira o status da solicitação de exemplo.",
+    "This booking is a simulation.": "Este agendamento é uma simulação.",
+    "Choose another time": "Escolher outro horário",
+    "Cancel sample request": "Cancelar solicitação de exemplo",
+    "That sample time is already confirmed for another request.": "Este horário de exemplo já foi confirmado para outra solicitação.",
+
     "Step {step} of 4": "Etapa {step} de 4",
     "Choose a patient profile": "Escolha um perfil de paciente",
     "Use the fictional patient below. No personal details are needed.": "Use o paciente fictício abaixo. Nenhum dado pessoal é necessário.",
