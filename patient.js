@@ -23,6 +23,10 @@ class PatientBooking {
     return slots.filter(slot => !booked.has(slot));
   }
 
+  dayLabel(slot) { return t(slot).split(',')[0]; }
+
+  clockLabel(slot) { return t(slot).split(',').slice(1).join(',').trim(); }
+
   selectTime() {
     if (!this.slots.includes(this.slot)) this.slot = this.slots[0] || '';
     this.go(1);
@@ -103,7 +107,7 @@ Component({
           <fieldset class="available-times">
             <legend>Appointment time</legend>
             @for (option of slots; track option) {
-              <label class="time-tile"><input type="radio" name="slot" [value]="option" [checked]="slot === option" (change)="slot = option"> <span>{{t(option)}}</span></label>
+              <label class="time-tile"><input type="radio" name="slot" [value]="option" [checked]="slot === option" (change)="slot = option"> <span class="slot-day">{{dayLabel(option)}}</span><strong>{{clockLabel(option)}}</strong></label>
             } @empty { <p class="note">No times are available right now.</p> }
           </fieldset>
           <div class="actions">
