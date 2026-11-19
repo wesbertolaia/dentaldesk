@@ -26,6 +26,15 @@ class DentalDesk {
   statuses = statuses;
   notice = '';
   requests = read(requestsKey, []);
+  requestFilter = 'Pending clinic review';
+
+  get filteredRequests() {
+    return this.requests.filter(item => !this.requestFilter || item.status === this.requestFilter);
+  }
+
+  get pendingRequests() {
+    return this.requests.filter(item => item.status === 'Pending clinic review').length;
+  }
 
   resolveRequest(id, status) {
     const current = read(requestsKey, []);
@@ -132,7 +141,19 @@ Component({
     <p class="notice" role="status">{{t(notice)}}</p>
     <section class="panel request-inbox">
       <h2>Patient requests</h2>
-      @for (item of requests; track item.id) {
+      <div class="inbox-tools">
+        <p>{{pendingRequests}} {{t('awaiting review')}}</p>
+        <label>Request status
+          <select [value]="requestFilter" (change)="requestFilter = $any($event.target).value">
+            <option value="Pending clinic review" selected>Pending clinic review</option>
+            <option value="">All requests</option>
+            <option value="Confirmed in demo">Confirmed in demo</option>
+            <option value="Declined in demo">Declined in demo</option>
+            <option value="Cancelled in demo">Cancelled in demo</option>
+          </select>
+        </label>
+      </div>
+      @for (item of filteredRequests; track item.id) {
         <article class="request-row">
           <div><strong>{{item.patient || "Alex Morgan"}}</strong><div>{{t(item.service)}} · {{t(item.slot)}}</div></div>
           <span class="request-status">{{t(item.status)}}</span>
@@ -143,7 +164,7 @@ Component({
             </div>
           }
         </article>
-      } @empty { <p>No sample patient requests yet.</p> }
+      } @empty { <p>No requests match this status.</p> }
     </section>
     <div class="desk-grid">
       <section class="panel" id="schedule">

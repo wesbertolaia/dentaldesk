@@ -1,5 +1,11 @@
 (() => {
   const messages = {
+    "Patient booking": "Agendamento de pacientes",
+    "Choose a visit type and request an appointment with DentalDesk.": "Escolha o tipo de atendimento e solicite uma consulta com o DentalDesk.",
+    "awaiting review": "aguardando revisão",
+    "All requests": "Todas as solicitações",
+    "No requests match this status.": "Nenhuma solicitação com esse status.",
+
     "Cancelled in demo": "Cancelado na demo",
     "The demo clinic still needs to approve this time. Check back here for its decision.": "A clínica fictícia ainda precisa aprovar este horário. Volte aqui para ver a decisão.",
     "The demo clinic confirmed this time. The details below are your sample booking.": "A clínica fictícia confirmou este horário. Confira abaixo os dados do agendamento de exemplo.",
