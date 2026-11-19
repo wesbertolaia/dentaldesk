@@ -142,3 +142,6 @@ input,select,button { border-radius: 10px; }
 .request-row:last-child { border: 0; }
 .request-status { padding: .3rem .6rem; border-radius: 999px; background: #dff3ec; color: #075e51; font-size: .85rem; font-weight: 650; }
 .request-actions { display: flex; flex-wrap: wrap; gap: .45rem; margin-left: auto; }
+
+.inbox-tools { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: .6rem; margin: .65rem 0; }
+.inbox-tools p { color: var(--muted); }
