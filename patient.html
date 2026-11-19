@@ -6,23 +6,27 @@
   <meta name="description" content="Choose a visit type and request an appointment with DentalDesk.">
   <title>Request a dental visit | DentalDesk</title>
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="./patient.css?v=product-workspace">
-  <script src="./locale.js?v=product-workspace"></script>
-  <script type="module" src="./patient.js?v=product-workspace"></script>
+  <link rel="stylesheet" href="./patient.css?v=patient-experience">
+  <script src="./locale.js?v=patient-experience"></script>
+  <script type="module" src="./patient.js?v=patient-experience"></script>
   <link rel="stylesheet" href="./locale.css">
 </head>
 <body>
   <header class="top wrap"><a href="./patient.html" class="brand">DentalDesk<span>.</span></a><a href="./">Clinic workspace</a><span data-language-menu></span></header>
   <main class="wrap">
     <div class="preview">Patient booking</div>
-    <section class="layout">
+    <section class="layout" aria-labelledby="offer">
       <div class="intro">
-        <h1 id="offer">Request a dental visit</h1>
-        <p>Choose a visit type and see sample appointment times before entering any details.</p>
-        <aside><strong>What happens next?</strong><p>Review your visit and submit a sample request. In a live service, the clinic would confirm availability before the appointment is booked.</p></aside>
+        <h1 id="offer">A dental visit that fits your day.</h1>
+        <p>Find a time that works for you, review your details, and send a request to the clinic.</p>
+        <aside class="booking-guide"><strong>From request to confirmation</strong>
+          <ol><li>Choose your visit and a time.</li><li>Review and send your request.</li><li>Check back for the clinic’s decision.</li></ol>
+          <p>A time is only confirmed after the clinic approves it.</p>
+        </aside>
       </div>
       <div id="booking"></div>
     </section>
   </main>
+  <footer class="wrap patient-footer">Practice booking. No real appointments are made.</footer>
 </body>
 </html>

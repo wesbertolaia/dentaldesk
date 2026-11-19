@@ -53,3 +53,12 @@ dd { font-weight:650; margin:0; }
 .card .patient-profile input { width: 18px; min-height: 0; accent-color: #08796d; }
 
 .card .status-next { margin: .4rem 0 1rem; color: #35565c; }
+
+.preview { display: inline-block; padding: .3rem .65rem; border-radius: 999px; background: #dcefe9; color: #15584a; }
+.intro h1 { max-width: 13ch; }
+.intro .booking-guide { max-width: 35ch; padding: 1rem 1.15rem; background: #e8f5f0; }
+.booking-guide ol { padding-left: 1.25rem; margin-block: .5rem .75rem; }
+.booking-guide li + li { margin-top: .3rem; }
+.booking-guide p { font-size: .88rem; }
+.patient-footer { margin-top: 1rem; padding-block: 1rem; border-top: 1px solid #cce3dc; color: #35565c; font-size: .85rem; }
+.card button:disabled { opacity: .5; cursor: default; }
