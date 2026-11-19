@@ -1,5 +1,7 @@
 (() => {
   const messages = {
+    "Make time for your teeth.": "Reserve um tempo para cuidar dos dentes.",
+
     "Request a dental appointment": "Solicite uma consulta odontológica",
     "See available times for a check-up, cleaning, or consultation before you send a request.": "Veja os horários disponíveis para avaliação, limpeza ou consulta antes de enviar o pedido.",
 
