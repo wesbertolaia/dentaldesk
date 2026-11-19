@@ -7,7 +7,9 @@
   <title>DentalDesk | Clinic Schedule</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="./style.css?v=demo-width">
-  <script type="module" src="./app.js"></script>
+  <script src="./locale.js"></script>
+  <script type="module" src="./app.js?v=languages"></script>
+  <link rel="stylesheet" href="./locale.css">
 </head>
 <body>
   <aside class="sidebar">
@@ -17,7 +19,7 @@
       <a href="#booking">Book a visit</a>
       <a href="#patients">Register patient</a>
       <a href="./patient.html">Patient booking preview</a>
-    </nav>
+    <span data-language-menu></span></nav>
     <a href="https://github.com/wesleybertolaia/dentaldesk">View source on GitHub</a>
   </aside>
   <main class="workspace" id="demo">

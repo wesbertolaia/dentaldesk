@@ -3,6 +3,7 @@ import { Component, createComponent } from '@angular/core';
 import { createApplication } from '@angular/platform-browser';
 import { read, save, today } from './storage.js';
 
+const { t, date: displayDate, template } = window.siteLocale;
 const key = 'dentaldesk-v1';
 const statuses = ['Scheduled', 'Confirmed', 'Completed', 'Cancelled'];
 const seed = {
@@ -15,6 +16,8 @@ const seed = {
 };
 
 class DentalDesk {
+  t = t;
+  displayDate = displayDate;
 
   data = read(key, seed);
   filter = '';
@@ -36,7 +39,7 @@ class DentalDesk {
   }
 
   patientName(id) {
-    return this.data.patients.find((patient) => patient.id === id)?.name ?? 'Patient unavailable';
+    return this.data.patients.find((patient) => patient.id === id)?.name ?? t('Patient unavailable');
   }
 
   persist(data, message) {
@@ -95,13 +98,13 @@ class DentalDesk {
 
 Component({
   selector: 'dental-desk',
-  template: `
+  template: template(`
     <dl class="metrics" aria-label="Practice overview">
       <div><dt>Today’s visits</dt><dd>{{todayAppointments.length}}</dd></div>
       <div><dt>Confirmed today</dt><dd>{{confirmedToday}}</dd></div>
       <div><dt>Patients</dt><dd>{{data.patients.length}}</dd></div>
     </dl>
-    <p class="notice" role="status">{{notice}}</p>
+    <p class="notice" role="status">{{t(notice)}}</p>
     <div class="desk-grid">
       <section class="panel" id="schedule">
         <h2>Appointments</h2>
@@ -111,10 +114,10 @@ Component({
       <thead><tr><th>Date</th><th>Time</th><th>Patient</th><th>Service</th><th>Status</th></tr></thead>
       <tbody>
         @for (item of appointments; track item.id) {
-          <tr><td>{{item.date}}</td><td>{{item.time}}</td><td>{{patientName(item.patient)}}</td><td>{{item.service}}</td>
-            <td><select [attr.data-status]="item.status" [attr.aria-label]="'Status for ' + patientName(item.patient)" [value]="item.status" (change)="updateStatus(item.id, $event.target)">
+          <tr><td>{{displayDate(item.date)}}</td><td>{{item.time}}</td><td>{{patientName(item.patient)}}</td><td>{{t(item.service)}}</td>
+            <td><select [attr.data-status]="item.status" [attr.aria-label]="t('Status for') + ' ' + patientName(item.patient)" [value]="item.status" (change)="updateStatus(item.id, $event.target)">
               @for (status of statuses; track status) {
-                <option [value]="status" [selected]="item.status === status">{{status}}</option>
+                <option [value]="status" [selected]="item.status === status">{{t(status)}}</option>
               }
             </select></td></tr>
         } @empty { <tr><td colspan="5">No appointments for this date.</td></tr> }
@@ -133,7 +136,7 @@ Component({
           <option [value]="patient.id">{{patient.name}}</option>
         }
       </select></label>
-      <label>Service <select name="service"><option>Cleaning</option><option>Consultation</option><option>Follow-up</option><option>Dental filling</option></select></label>
+      <label>Service <select name="service"><option value="Cleaning">Cleaning</option><option value="Consultation">Consultation</option><option value="Follow-up">Follow-up</option><option value="Dental filling">Dental filling</option></select></label>
       <label>Date <input type="date" name="date" required [value]="date"></label>
       <label>Time <input type="time" name="time" required></label>
       <button type="submit">Book appointment</button>
@@ -141,7 +144,7 @@ Component({
     </section>
       </div>
     </div>
-  `,
+  `),
 })(DentalDesk);
 
 export async function mount(container) {
