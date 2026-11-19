@@ -1,5 +1,7 @@
 (() => {
   const messages = {
+    "Choose a visit type": "Escolher tipo de atendimento",
+    "Choose a time and visit type.": "Escolha um horário e o tipo de atendimento.",
     "Make time for your teeth.": "Reserve um tempo para cuidar dos dentes.",
 
     "Request a dental appointment": "Solicite uma consulta odontológica",
